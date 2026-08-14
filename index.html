@@ -3,384 +3,409 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Darshita Singh - Information Technology Student</title>
+    <title>Darshita Singh | Full-Stack Developer &amp; IT Graduate</title>
+    <meta name="description" content="Portfolio of Darshita Singh, an Information Technology graduate and full-stack developer experienced in React, Angular, Node.js, Express.js, Django REST Framework, MongoDB, and PostgreSQL. Explore projects, skills, and ways to connect.">
+    <meta name="theme-color" content="#2563eb">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Darshita Singh | Full-Stack Developer & IT Graduate">
+    <meta property="og:description" content="Portfolio of Darshita Singh, an Information Technology graduate and full-stack developer experienced in React, Angular, Node.js, Express.js, Django REST Framework, MongoDB, and PostgreSQL.">
+    <meta property="og:image" content="Profile.jpeg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Darshita Singh | Full-Stack Developer & IT Graduate">
+    <meta name="twitter:description" content="Portfolio of Darshita Singh, an Information Technology graduate and full-stack developer.">
+    <meta name="twitter:image" content="Profile.jpeg">
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+      (function () {
+        var stored = localStorage.getItem('darkMode');
+        if (stored === 'true') document.documentElement.classList.add('dark-mode');
+      })();
+    </script>
 </head>
 <body>
-    <!-- Cursor Follower -->
-    <div class="cursor-follower"></div>
-    
-    <!-- Floating Particles -->
-    <div class="particles-container"></div>
-    
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
     <!-- Scroll Progress -->
-    <div class="scroll-progress"></div>
-    
+    <div class="scroll-progress" aria-hidden="true"></div>
+
     <!-- Navigation -->
-    <nav class="navbar">
+    <header class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">Darshita Singh</div>
-            <div class="nav-menu">
+            <a href="#hero" class="nav-logo">Darshita Singh</a>
+            <nav class="nav-menu" id="nav-menu" aria-label="Primary">
                 <a href="#about" class="nav-link">About</a>
                 <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experience" class="nav-link">Experience</a>
                 <a href="#projects" class="nav-link">Projects</a>
                 <a href="#contact" class="nav-link">Contact</a>
-            </div>
-            <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
-                <i class="fas fa-moon"></i>
+                <a href="Resumelatest.pdf" class="nav-resume-link" download="Darshita_Singh_Resume.pdf">Resume</a>
+            </nav>
+            <button id="darkModeToggle" class="dark-mode-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+                <i class="fas fa-moon" aria-hidden="true"></i>
             </button>
-            <div class="hamburger">
+            <button class="hamburger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-background"></div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <div class="hero-greeting">Hello, I'm</div>
-                    <h1 class="hero-name">Darshita Singh</h1>
-                    <div class="hero-title">
-                        <span class="typing-text">Information Technology Student</span>
-                        <span class="cursor">|</span>
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-background" aria-hidden="true"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <p class="hero-greeting">Hello, I'm</p>
+                        <h1 class="hero-name">Darshita Singh</h1>
+                        <div class="hero-title">
+                            <span class="typing-text">Full-Stack Developer</span><span class="cursor" aria-hidden="true">|</span>
+                        </div>
+                        <p class="hero-description">
+                            Information Technology graduate (CGPA 8.72/10) with hands-on experience building and deploying full-stack web apps using React.js, Angular, Node.js, Express.js, Django REST Framework, MongoDB, and PostgreSQL &mdash; including JWT-secured REST APIs and automated data pipelines. Looking for an entry-level Software Engineer or Full-Stack Developer role.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#projects" class="btn btn-primary">
+                                <i class="fas fa-diagram-project" aria-hidden="true"></i>
+                                View Projects
+                            </a>
+                            <a href="Resumelatest.pdf" class="btn btn-outline" download="Darshita_Singh_Resume.pdf">
+                                <i class="fas fa-download" aria-hidden="true"></i>
+                                Download Resume
+                            </a>
+                            <a href="#contact" class="btn btn-outline">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                                Get In Touch
+                            </a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://github.com/darshita27" class="social-link" data-tooltip="GitHub" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in a new tab)">
+                                <i class="fab fa-github" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/darshita-singh" class="social-link" data-tooltip="LinkedIn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">
+                                <i class="fab fa-linkedin" aria-hidden="true"></i>
+                            </a>
+                            <a href="mailto:darshitasingh.it26@gmail.com" class="social-link" data-tooltip="Email" aria-label="Send an email">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                            </a>
+                        </div>
                     </div>
-                    <p class="hero-description">
-                        Analytical and detail-oriented IT student with a strong foundation in C, C++, JavaScript. Experienced in developing web applications and solving complex coding challenges. Passionate about software development and AI-driven solutions.
-                    </p>
-                    <div class="hero-buttons">
-                        <button class="btn btn-primary" onclick="window.open('Resumelatest.pdf')">
-                            <i class="fas fa-download"></i>
-                            Download CV
-                        </button>
-                        <button class="btn btn-outline" onclick="window.location.href='#contact'">
-                            <i class="fas fa-envelope"></i>
-                            Get In Touch
-                        </button>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://github.com/darshita27" class="social-link" data-tooltip="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/darshita-singh" class="social-link" data-tooltip="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="mailto:darshitasingh.it26@gmail.com" class="social-link" data-tooltip="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
+                    <div class="hero-image">
+                        <div class="profile-container">
+                            <img src="Profile.jpeg" alt="Portrait of Darshita Singh" class="profile-img" width="400" height="500" fetchpriority="high">
+                        </div>
                     </div>
                 </div>
-                <div class="hero-image">
-                    <div class="profile-container">
-                        <img src="Profile.jpeg" alt="Profile" class="profile-img">
-                        <div class="floating-elements">
-                            <div class="floating-element code-icon">
-                                <i class="fas fa-code"></i>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Information Technology Graduate &amp; Full-Stack Developer</h3>
+                        <p>
+                            I completed my B.Tech in Information Technology at Jaipur Engineering College and Research Center (CGPA: 8.72/10, 2022&ndash;2026), and I have hands-on experience building and deploying production web applications using React.js, Angular, Node.js, Express.js, Django REST Framework, MongoDB, and PostgreSQL. I've delivered full-stack projects featuring JWT-secured RESTful APIs and automated data pipelines, and interned as a MERN Stack Developer at REGEX Software Pvt. Ltd. I'm passionate about web development, cybersecurity, and AI-driven solutions, and I enjoy solving complex coding challenges.
+                        </p>
+                        <p>
+                            When I'm not coding, I enjoy teaching, reading, and dancing.
+                        </p>
+                        <div class="about-info">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                <span>Jaipur, Rajasthan, India</span>
                             </div>
-                            <div class="floating-element design-icon">
-                                <i class="fas fa-palette"></i>
-                            </div>
-                            <div class="floating-element lightning-icon">
-                                <i class="fas fa-bolt"></i>
+                            <div class="info-item">
+                                <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                                <span>B.Tech (IT), JECRC Jaipur &middot; 2022&ndash;2026</span>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Analytical & Detail-Oriented IT Student</h3>
-                    <p>
-                        I am currently pursuing B.Tech in Information Technology at Jaipur Engineering College and Research Center (CGPA: 8.43, 2022–2026). I have a strong foundation in C, C++, and JavaScript, and am passionate about web development, cybersecurity, and AI-driven solutions. I believe in continuous learning and enjoy solving complex coding challenges.
-                    </p>
-                    <p>
-                        When not coding, I enjoy teaching, reading books, and dancing.
-                    </p>
-                    <div class="about-info">
-                        <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Jaipur, Rajasthan, India</span>
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">8.72</div>
+                            <div class="stat-label">CGPA</div>
                         </div>
-                        <div class="info-item">
-                            <i class="fas fa-calendar"></i>
-                            <span>B.Tech (IT), JECRC Jaipur (2022–2026)</span>
+                        <div class="stat-card">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Projects Built</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">MERN</div>
+                            <div class="stat-label">Primary Stack</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">2026</div>
+                            <div class="stat-label">Graduation Year</div>
                         </div>
                     </div>
                 </div>
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <div class="stat-number" data-target="650">300+</div>
-                        <div class="stat-label">Problems Solved</div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills" id="skills">
+            <div class="container">
+                <h2 class="section-title">Skills &amp; Expertise</h2>
+                <div class="skills-categories">
+                    <div class="skill-category">
+                        <h3 class="skill-category-title"><i class="fas fa-code" aria-hidden="true"></i> Languages</h3>
+                        <ul class="skill-tags">
+                            <li>JavaScript</li>
+                            <li>C++</li>
+                            <li>C</li>
+                            <li>SQL</li>
+                        </ul>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number" data-target="3">2</div>
-                        <div class="stat-label">Major Projects</div>
+                    <div class="skill-category">
+                        <h3 class="skill-category-title"><i class="fas fa-display" aria-hidden="true"></i> Frontend</h3>
+                        <ul class="skill-tags">
+                            <li>React.js</li>
+                            <li>Angular</li>
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                        </ul>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number" data-target="3">5+</div>
-                        <div class="stat-label">Technologies Learned</div>
+                    <div class="skill-category">
+                        <h3 class="skill-category-title"><i class="fas fa-server" aria-hidden="true"></i> Backend</h3>
+                        <ul class="skill-tags">
+                            <li>Node.js</li>
+                            <li>Express.js</li>
+                            <li>Django REST Framework</li>
+                            <li>JWT Authentication</li>
+                            <li>RESTful API Design</li>
+                        </ul>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number" data-target="100">MERN</div>
-                        <div class="stat-label">Tech Stack Experience</div>
+                    <div class="skill-category">
+                        <h3 class="skill-category-title"><i class="fas fa-database" aria-hidden="true"></i> Databases</h3>
+                        <ul class="skill-tags">
+                            <li>MongoDB</li>
+                            <li>PostgreSQL</li>
+                            <li>Database Schema Design</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3 class="skill-category-title"><i class="fas fa-toolbox" aria-hidden="true"></i> Tools &amp; Platforms</h3>
+                        <ul class="skill-tags">
+                            <li>Git &amp; GitHub</li>
+                            <li>VS Code</li>
+                            <li>Render</li>
+                            <li>Vercel</li>
+                            <li>Vitest</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3 class="skill-category-title"><i class="fas fa-diagram-project" aria-hidden="true"></i> CS Fundamentals</h3>
+                        <ul class="skill-tags">
+                            <li>Data Structures &amp; Algorithms</li>
+                            <li>Object-Oriented Programming</li>
+                            <li>Database Management Systems</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Skills Section -->
-    <section class="skills" id="skills">
-        <div class="container">
-            <h2 class="section-title">Skills & Expertise</h2>
-            <div class="skills-grid">
-                <div class="skill-card" data-skill="C" data-level="90">
-                    <div class="skill-header">
-                        <h3>C</h3>
-                        <span class="skill-percentage">90%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="90%"></div>
-                    </div>
-                </div>
-                <div class="skill-card" data-skill="C++" data-level="90">
-                    <div class="skill-header">
-                        <h3>C++</h3>
-                        <span class="skill-percentage">90%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="90%"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-card" data-skill="JavaScript" data-level="85">
-                    <div class="skill-header">
-                        <h3>JavaScript</h3>
-                        <span class="skill-percentage">75%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="75%"></div>
-                    </div>
-                </div>
-                <div class="skill-card" data-skill="HTML" data-level="85">
-                    <div class="skill-header">
-                        <h3>HTML</h3>
-                        <span class="skill-percentage">85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="85%"></div>
-                    </div>
-                </div>
-                <div class="skill-card" data-skill="CSS" data-level="80">
-                    <div class="skill-header">
-                        <h3>CSS</h3>
-                        <span class="skill-percentage">80%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="80%"></div>
-                    </div>
-                </div>
-                <div class="skill-card" data-skill="React.js" data-level="80">
-                    <div class="skill-header">
-                        <h3>React.js</h3>
-                        <span class="skill-percentage">70%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="70%"></div>
-                    </div>
-                </div>
-                <div class="skill-card" data-skill="Git/GitHub" data-level="80">
-                    <div class="skill-header">
-                        <h3>Git/GitHub</h3>
-                        <span class="skill-percentage">80%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="80%"></div>
-                    </div>
-                </div>
-                <div class="skill-card" data-skill="MySQL" data-level="75">
-                    <div class="skill-header">
-                        <h3>MySQL</h3>
-                        <span class="skill-percentage">75%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="75%"></div>
-                    </div>
-                </div>
-                <div class="skill-card" data-skill="VS Code" data-level="75">
-                    <div class="skill-header">
-                        <h3>VS Code</h3>
-                        <span class="skill-percentage">75%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="75%"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-card" data-skill="Pandas" data-level="70">
-                    <div class="skill-header">
-                        <h3>MongoDB</h3>
-                        <span class="skill-percentage">80%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="80%"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-card" data-skill="NLTK" data-level="65">
-                    <div class="skill-header">
-                        <h3>Node.js</h3>
-                        <span class="skill-percentage">65%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="65%"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-card" data-skill="Soft Skills" data-level="80">
-                    <div class="skill-header">
-                        <h3>Soft Skills</h3>
-                        <span class="skill-percentage">80%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="80%"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-content" onclick="window.open('https://www.vrindavalleyresort.com/', '_blank')" style="cursor:pointer;"
-                    >
-                        <h3>Vrinda Valley Resort</h3>
-                        <p>Built a responsive resort booking website with room browsing and inquiry features.
-Includes an admin panel and deployed on Vercel with a custom domain.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React.js</span>
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">MongoDB Atlas</span>
-                            <span class="tech-tag">Express.js</span>
-                            <span class="tech-tag">API</span>
-                            <span class="tech-tag">Vercel</span>
-                            <span class="tech-tag">GoDaddy</span>
+        <!-- Experience Section -->
+        <section class="experience" id="experience">
+            <div class="container">
+                <h2 class="section-title">Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker" aria-hidden="true"></div>
+                        <div class="timeline-content">
+                            <h3>MERN Stack Developer Intern</h3>
+                            <p class="timeline-meta">REGEX Software Pvt. Ltd., Jaipur, India &middot; Jul 2024 &ndash; Sep 2024</p>
+                            <ul class="timeline-points">
+                                <li>Built and deployed 3 full-stack web applications (resort booking platform, learning management system, e-commerce site) using MongoDB, Express.js, React.js, and Node.js, validated with 20+ test users.</li>
+                                <li>Designed and implemented 10+ RESTful API endpoints covering authentication, bookings, rooms, user management, admin dashboard, and contact forms.</li>
+                                <li>Diagnosed and resolved production bugs across the full stack by reproducing issues from user reports and isolating faults through systematic debugging.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-content" onclick="window.open('https://psyche-vidhya.vercel.app/', '_blank')" style="cursor:pointer;">
-                        <h3>PsycheVidhya</h3>
-                        <p>PsycheVidhya is a Responsive Mental Health Awareness web-based learning platform , focused on delivering structured content with a clean user experience.
-It is designed to be scalable and ready for future AI-based personalized learning features.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Web3Forms API</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card" onclick="window.open('https://github.com/darshita27/async-doc-processing', '_blank')" style="cursor:pointer;">
-                    <div class="project-content">
-                        <h3>Async Document Processing Workflow System</h3>
-                        <p>An async document processing system that handles file uploads and background processing efficiently. Designed for scalable, non-blocking performance using task queues.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">React.js</span>
-                            <span class="tech-tag">Next.js</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">Celery</span>
-                            <span class="tech-tag">FastAPI</span>
-                            <span class="tech-tag">Render</span>
-                            <span class="tech-tag">Vercel</span>
+            </div>
+        </section>
 
+        <!-- Projects Section -->
+        <section class="projects" id="projects">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <div class="project-content">
+                            <h3>Vrinda Valley Resort</h3>
+                            <p class="project-description">
+                                An end-to-end resort booking platform with a Node.js/Express.js backend, MongoDB data layer, and a responsive JavaScript front end, deployed on Vercel with a custom domain.
+                            </p>
+                            <ul class="project-features">
+                                <li>JWT-based authentication and a role-protected admin dashboard</li>
+                                <li>RESTful APIs for room inventory, reservations, and enquiries</li>
+                                <li>Automated booking confirmation emails and an AI-powered WhatsApp support channel for reservations, FAQs, and real-time customer queries</li>
+                            </ul>
+                            <div class="project-tech">
+                                <span class="tech-tag">React.js</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Express.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">JWT</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Vercel</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://www.vrindavalleyresort.com/" class="project-link-btn" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                                    Live Demo
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
+                    </article>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
-            <p class="contact-subtitle">
-                Ready to bring your ideas to life? Let's discuss your project and create something extraordinary together.
-            </p>
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <i class="fas fa-envelope"></i>
-                    <h3>Email Me</h3>
-                    <p>darshitasingh.it26@gmail.com</p>
-                </div>
-                <div class="contact-card">
-                    <i class="fas fa-phone"></i>
-                    <h3>Call Me</h3>
-                    <p>+91-635-000-61556</p>
+                    <article class="project-card">
+                        <div class="project-content">
+                            <h3>PsycheVidhya</h3>
+                            <p class="project-description">
+                                A responsive multi-page mental health awareness and counselling platform with therapy service listings, mental health resources, and an appointment booking flow.
+                            </p>
+                            <ul class="project-features">
+                                <li>Dynamic UI components in JavaScript with client-side state persisted via the Local Storage API</li>
+                                <li>External REST APIs integrated for supporting content</li>
+                                <li>AI-powered chatbot delivering real-time responses and routing visitors to relevant mental health resources</li>
+                            </ul>
+                            <div class="project-tech">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">REST APIs</span>
+                                <span class="tech-tag">Local Storage</span>
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://psyche-vidhya.vercel.app/" class="project-link-btn" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                                    Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-content">
+                            <h3>DevJobsBoard</h3>
+                            <p class="project-description">
+                                A full-stack job aggregation platform that ingests live developer and internship postings from 4 external sources (Greenhouse, Workday, Amazon Jobs, Unstop), processing 500+ raw listings per cycle into a deduplicated, classified feed.
+                            </p>
+                            <ul class="project-features">
+                                <li>Data-normalization pipeline extracting structured fields via regex-based parsing, content-fingerprint deduplication, and role classification</li>
+                                <li>JWT authentication with token blacklisting, a saved-favorites API, and filterable, searchable listings with automated hourly re-ingestion</li>
+                                <li>Angular 22 front end with standalone components, route guards, an HTTP auth interceptor, and a responsive filter UI</li>
+                            </ul>
+                            <div class="project-tech">
+                                <span class="tech-tag">Angular 22</span>
+                                <span class="tech-tag">Django REST Framework</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">JWT</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://devjobsboard-web.onrender.com/" class="project-link-btn" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                                    Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
-            <div class="contact-buttons">
-                <button class="btn btn-primary" onclick="window.location.href='mailto:darshitasingh.it26@gmail.com'">
-                    <i class="fas fa-envelope"></i>
-                    Send Message
-                </button>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="contact-subtitle">
+                    Open to internship and full-time opportunities. Feel free to reach out &mdash; I'd love to hear from you.
+                </p>
+                <div class="contact-grid">
+                    <a class="contact-card" href="mailto:darshitasingh.it26@gmail.com">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        <h3>Email</h3>
+                        <p>darshitasingh.it26@gmail.com</p>
+                    </a>
+                    <a class="contact-card" href="tel:+916350061556">
+                        <i class="fas fa-phone" aria-hidden="true"></i>
+                        <h3>Phone</h3>
+                        <p>+91 63500 61556</p>
+                    </a>
+                    <a class="contact-card" href="https://linkedin.com/in/darshita-singh" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
+                        <h3>LinkedIn</h3>
+                        <p>linkedin.com/in/darshita-singh</p>
+                    </a>
+                    <a class="contact-card" href="https://github.com/darshita27" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                        <h3>GitHub</h3>
+                        <p>github.com/darshita27</p>
+                    </a>
+                </div>
+                <div class="contact-buttons">
+                    <a href="mailto:darshitasingh.it26@gmail.com" class="btn btn-primary">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        Send Message
+                    </a>
+                    <a href="Resumelatest.pdf" class="btn btn-outline" download="Darshita_Singh_Resume.pdf">
+                        <i class="fas fa-download" aria-hidden="true"></i>
+                        Download Resume
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">Darshita Singh</div>
-                <p class="footer-tagline">Information Technology Student • Web Developer • Problem Solver</p>
+                <p class="footer-tagline">Information Technology Graduate &middot; Full-Stack Developer &middot; Problem Solver</p>
                 <div class="footer-social">
-                    <a href="https://github.com/darshita27" class="footer-social-link">
-                        <i class="fab fa-github"></i>
+                    <a href="https://github.com/darshita27" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in a new tab)">
+                        <i class="fab fa-github" aria-hidden="true"></i>
                     </a>
-                    <a href="https://linkedin.com/in/darshita-singh" class="footer-social-link">
-                        <i class="fab fa-linkedin"></i>
+                    <a href="https://linkedin.com/in/darshita-singh" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
                     </a>
-                    <a href="mailto:darshitasingh.it26@gmail.com" class="footer-social-link">
-                        <i class="fas fa-envelope"></i>
+                    <a href="mailto:darshitasingh.it26@gmail.com" class="footer-social-link" aria-label="Send an email">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
                     </a>
                 </div>
                 <div class="footer-divider"></div>
                 <p class="footer-copyright">
-                    © 2026 Darshita Singh. All rights reserved. Made with ❤️ and lots of ☕
+                    &copy; 2026 Darshita Singh. All rights reserved.
                 </p>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
+    <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
     <script src="script.js"></script>
