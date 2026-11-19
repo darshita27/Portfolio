@@ -1,0 +1,231 @@
+@use "../../styles/tokens";
+@use "../../styles/mixins" as m;
+
+.skills {
+  position: relative;
+  overflow: hidden;
+  // background-image set via inline style in Skills.tsx
+}
+
+// Overlay — near-opaque so the city-desk photo is a barely-there texture
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 8, 10, 0.93);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.inner {
+  @include m.container;
+  @include m.section-padding;
+  position: relative;
+  z-index: 1;
+}
+
+.chapterLabel {
+  @include m.mono-label;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-12);
+
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--smoke);
+  }
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-chapter);
+  font-weight: 400;
+  line-height: var(--leading-tight);
+  color: var(--bone);
+  margin-bottom: var(--space-16);
+
+  em {
+    font-style: italic;
+    color: var(--amber);
+  }
+}
+
+// ── Layout ────────────────────────────────────────────────────────────────────
+.deskArea {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: start;
+
+  @include m.lg {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ── SVG desk illustration ──────────────────────────────────────────────────────
+.deskSvg {
+  width: 100%;
+  max-width: 520px;
+
+  .deskObject {
+    cursor: pointer;
+    // Smooth opacity fade on hover — 350ms cubic-bezier for a natural feel
+    transition: opacity 350ms cubic-bezier(0.22, 1, 0.36, 1);
+
+    &:hover,
+    &.active {
+      opacity: 0.70;
+    }
+  }
+
+  .strokePath {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    transition: stroke-dashoffset 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &.drawn .strokePath {
+    stroke-dashoffset: 0;
+  }
+}
+
+// ── Right panel area ──────────────────────────────────────────────────────────
+.panelArea {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+// Hint text fades when a group is active
+.hintText {
+  @include m.mono-label;
+  color: var(--ash);
+  transition: opacity 300ms ease-in-out;
+
+  &.dimmed {
+    opacity: 0.4;
+  }
+}
+
+// ── Skill panel ───────────────────────────────────────────────────────────────
+// The panel container handles enter/exit opacity + slide
+.panel {
+  background: var(--graphite);
+  border: 1px solid var(--smoke);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+  // Hidden state
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  // Smooth enter — 350ms cubic-bezier
+  transition:
+    opacity 350ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 350ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 350ms ease-in-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    border-color: rgba(255, 180, 59, 0.15);
+  }
+}
+
+.panelLabel {
+  @include m.mono-label;
+  color: var(--amber);
+  margin-bottom: var(--space-4);
+  // Fade in when panel content changes
+  animation: fadeSlideIn 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+// ── Panel content — fades in on each group change ────────────────────────────
+// The key prop on .panelContent forces React to remount it on group change,
+// which re-triggers this animation
+.panelContent {
+  animation: fadeSlideIn 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  letter-spacing: 0.06em;
+  color: var(--ash);
+  background: var(--smoke);
+  padding: var(--space-2) var(--space-3);
+  border-radius: 2px;
+  border: 1px solid transparent;
+  transition:
+    border-color 300ms ease-in-out,
+    color 300ms ease-in-out,
+    background 300ms ease-in-out;
+
+  &:hover {
+    border-color: var(--amber);
+    color: var(--bone);
+    background: rgba(255, 180, 59, 0.06);
+  }
+}
+
+// ── Fallback grid (shown when no object is hovered) ───────────────────────────
+// Fades out when panel becomes visible, in when it hides
+.fallbackGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 300ms ease-in-out,
+    transform 300ms ease-in-out;
+
+  &.hidden {
+    opacity: 0;
+    transform: translateY(6px);
+    pointer-events: none;
+  }
+}
+
+.groupCard {
+  background: var(--graphite);
+  border: 1px solid var(--smoke);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  transition:
+    border-color 300ms ease-in-out,
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 300ms ease-in-out;
+
+  &:hover {
+    border-color: rgba(255, 180, 59, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.groupLabel {
+  @include m.mono-label;
+  color: var(--amber);
+  margin-bottom: var(--space-4);
+}

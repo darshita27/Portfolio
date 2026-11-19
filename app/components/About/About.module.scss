@@ -1,0 +1,141 @@
+@use "../../styles/tokens";
+@use "../../styles/mixins" as m;
+
+.about {
+  position: relative;
+  background: var(--graphite);
+  border-top: 1px solid var(--smoke);
+  border-bottom: 1px solid var(--smoke);
+  overflow: hidden;
+}
+
+.sectionNum {
+  position: absolute;
+  right: var(--gutter-lg);
+  top: var(--space-16);
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 15vw, 14rem);
+  font-weight: 400;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--smoke);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+
+  @include m.md { display: none; }
+}
+
+.inner {
+  @include m.container;
+  @include m.section-padding;
+  position: relative;
+  z-index: 1;
+}
+
+.chapterLabel {
+  @include m.mono-label;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-12);
+
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--smoke);
+  }
+}
+
+// Two-column grid: title left, story right
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: var(--space-24);
+  align-items: start;
+
+  @include m.lg {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+}
+
+// ── Left: title column ────────────────────────────────────────────────────────
+.titleCol {
+  position: sticky;
+  top: 100px;
+  // No images here — height is determined only by the title + location text
+  align-self: start;
+
+  @include m.lg {
+    position: static;
+  }
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-chapter);
+  font-weight: 400;
+  line-height: var(--leading-tight);
+  color: var(--bone);
+
+  em {
+    font-style: italic;
+    color: var(--amber);
+  }
+}
+
+.location {
+  @include m.mono-label;
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-10);
+}
+
+// ── Right: story + quote ──────────────────────────────────────────────────────
+.storyCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.story {
+  font-size: var(--text-body);
+  line-height: 1.8;
+  color: var(--ash);
+  max-width: 60ch;
+  // Preserve natural word spacing so inline-block word spans don't collapse gaps
+  word-spacing: 0.25em;
+
+  .word {
+    display: inline-block;
+    word-spacing: normal; // reset per-word so only the gap between words is affected
+    opacity: 0.25;
+    transition: opacity 400ms ease-in-out;
+
+    &.lit {
+      opacity: 1;
+      color: var(--bone);
+    }
+  }
+}
+
+.quoteBlock {
+  position: relative;
+  padding-left: var(--space-8);
+  border-left: 1px solid var(--amber);
+}
+
+.quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-h3);
+  line-height: 1.4;
+  color: var(--bone);
+}
+
+.attribution {
+  @include m.mono-label;
+  margin-top: var(--space-4);
+  color: var(--amber);
+}

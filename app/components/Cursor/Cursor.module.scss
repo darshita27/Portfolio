@@ -1,0 +1,54 @@
+@use "../../styles/tokens";
+
+// Global cursor hide is in globals.scss to avoid CSS Module purity constraint
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: var(--z-cursor);
+  mix-blend-mode: difference;
+
+  // Outer ring (follows with lag)
+  .ring {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--amber);
+    transition: width 0.2s var(--ease-out), height 0.2s var(--ease-out), opacity 0.2s;
+    opacity: 0.6;
+  }
+
+  // Inner dot (precise position)
+  .dot {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--amber);
+    transition: width 0.15s var(--ease-out), height 0.15s var(--ease-out);
+  }
+
+  // Interactive state: ring grows, dot shrinks
+  &.hovering {
+    .ring {
+      width: 56px;
+      height: 56px;
+      opacity: 0.9;
+    }
+
+    .dot {
+      width: 4px;
+      height: 4px;
+    }
+  }
+
+  // Hidden when mouse leaves window
+  &.hidden {
+    opacity: 0;
+  }
+}

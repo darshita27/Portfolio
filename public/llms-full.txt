@@ -1,0 +1,101 @@
+# Darshita Singh — Full Profile
+
+## Identity
+
+Full Name: Darshita Singh
+Location: Jaipur, Rajasthan, India
+Professional Identity: Full-Stack Developer | Software Engineer | UI Designer
+Availability: Open to full-time opportunities in software engineering, full-stack development, frontend engineering, product engineering, and AI-powered application development.
+Tagline: Building meaningful digital experiences through code, creativity, and curiosity.
+
+## Professional Summary
+
+Darshita Singh is a B.Tech Information Technology graduate from Jaipur Engineering College and Research Centre (JECRC Foundation), graduating in 2026 with a CGPA of 8.72/10.
+
+She is a full-stack developer with hands-on experience across the MERN stack, Django REST Framework, TypeScript, and AI-powered integrations. She has worked at Zyoris Technology on an AI-powered CRM platform, at Pracverse Pvt. Ltd. on STEM and technology education, and at REGEX Software on full-stack web development.
+
+Her technical approach combines engineering precision with a strong interest in UI design and user experience. She positions herself as a UI/UX-focused full-stack developer who cares about how products feel, not just whether they work.
+
+## Projects
+
+### Vrinda Valley Resort
+Category: Full-Stack Web Development
+Stack: React 19, TypeScript, Tailwind CSS, Node.js, Express 5, MongoDB Atlas, Cloudinary, Netlify, Render
+Problem: A luxury resort in Jaipur needed a complete digital presence from scratch — public-facing booking site and admin dashboard.
+Approach: Built end-to-end. Responsive site, booking workflow, admin dashboard for bookings/photos/reviews/blog/SEO content, rule-based chatbot using intent classification and state machine (no external AI API), server-side session authentication.
+Achievement: Content payload reduced from ~5 MB to 11 KB.
+Live URL: https://www.vrindavalleyresort.com/
+
+### DevJobsBoard
+Category: Full-Stack Development + AI-Assisted Resume Processing
+Stack: React 19, TypeScript, Vite, Django REST Framework, Anthropic Claude API, Render
+Problem: Developers need to discover jobs across platforms and understand if their resume passes ATS filters.
+Approach: Job aggregation with multi-filter search, JWT authentication, ATS resume-tailoring engine. All PDF/DOCX parsing and scoring runs client-side — documents never leave the browser.
+Live URL: https://devjobsboard-web.onrender.com/
+
+### Manova Mental Wellness
+Category: Frontend Engineering + Digital Wellness
+Stack: React 19, TypeScript, Vite, Framer Motion, EmailJS
+Problem: A licensed psychologist needed a professional website with appointment booking and self-help tools.
+Approach: Four-step animated booking, browser-based mood journal, PHQ-9 check-in, guided breathing, dual-email delivery, bilingual English/Hindi crisis-detection chatbot, full accessibility.
+
+## Experience
+
+### Zyoris Technology
+Role: Full-Stack Developer Intern
+Period: August 2026 – November 2026
+Domain: AI-Powered CRM and Autonomous Business Operations
+- Contributed to AI-powered CRM workflows with 12 CRM agents (research, lead qualification, forecasting).
+- Built reusable UI components for Customer 360 Shell, Timeline UI, Communication Timeline, Health & Graph UX.
+- Implemented permission matrices and observability dashboard interfaces.
+- Tailwind CSS across the platform for consistent, responsive, mobile-first interfaces.
+Tech: React.js, TypeScript, Tailwind CSS, AI Agent Workflows, CRM Architecture
+
+### Pracverse Pvt. Ltd.
+Role: AI & Next Gen Technology Associate Intern
+Period: August 2026 – November 2026
+Domain: Artificial Intelligence, Drone Technology, STEM Education
+- Delivered coding sessions in partner schools.
+- Conducted drone and STEM learning sessions.
+- Supported AI and drone-based pilot initiatives.
+
+### REGEX Software Pvt. Ltd.
+Role: MERN Stack Developer Intern
+Location: Jaipur, India
+Period: July 2024 – September 2024
+Domain: Full-Stack Web Development
+- Developed responsive frontend interfaces with React, TypeScript, Tailwind CSS.
+- Implemented CRUD operations and REST API integrations.
+- Improved frontend architecture through state management optimisation, memoisation, code splitting, lazy loading.
+- Reduced bundle size and improved Core Web Vitals.
+Tech: React.js, TypeScript, JavaScript, Tailwind CSS, Node.js, REST APIs
+
+## Education
+
+- B.Tech in Information Technology — JECRC Foundation, Jaipur (2022–2026) — CGPA 8.72/10
+- Class XII (RBSE) — Mayur Public Senior Secondary School (2021) — 95.82%
+- Class X (CBSE) — Central Public Senior Secondary School (2019) — 90.82%
+
+## Skills
+
+Programming Languages: JavaScript, TypeScript, C++, C, SQL
+Frontend: React.js, HTML5, CSS3, Tailwind CSS, Responsive Web Design, Reusable Component Architecture, Frontend Performance Optimisation
+Backend: Node.js, Express.js, Django REST Framework, RESTful API Development, CRUD Operations, API Integration
+Databases: MongoDB, MongoDB Atlas, PostgreSQL, Database Schema Design, SQL, Local Storage
+Auth & Security: JWT Authentication, Session-Based Authentication, Role-Based Access Control, Permission Models
+AI & Intelligent Systems: AI Agent Workflows, Intent Classification, Permission Models and Audit Logging, AI-Powered Business Workflows, Intelligent Automation
+Generative AI: Anthropic Claude API, Structured JSON Output, AI-Assisted Application Development
+Tools: Git, GitHub, Visual Studio Code, Vercel, Netlify, Render, Cloudinary
+UI/UX: User Interface Design, Responsive Design, Visual Hierarchy, Component Consistency, User Experience, Interactive Web Interfaces, Accessibility
+
+## Contact
+
+Email: darshitasingh.it26@gmail.com
+Phone: +91 63500 61556
+GitHub: https://github.com/darshita27
+LinkedIn: https://linkedin.com/in/darshita-singh
+Portfolio: https://darshita-singh-portfolio1.vercel.app
+
+## Personal Statement
+
+I believe technology is not just about writing code — it is about understanding possibilities, solving problems, creating experiences, and bringing ideas to life. I enjoy the combination of creativity and engineering: imagining what something could become and then working through the technical process of making it real. I am here to learn, build, collaborate, and create something that matters.

@@ -1,0 +1,255 @@
+@use "../../styles/tokens";
+@use "../../styles/mixins" as m;
+
+.projects {
+  position: relative;
+  // background-image set via inline style in Projects.tsx (avoids Next.js fill artefacts)
+  background-color: var(--graphite); // fallback if image not loaded
+  border-top: 1px solid var(--smoke);
+  overflow: hidden;
+}
+
+// Overlay — darkens the background image to near-black so content is readable
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 8, 10, 0.92); // 92% opaque — image is barely a texture hint
+  pointer-events: none;
+  z-index: 0;
+}
+
+.inner {
+  @include m.container;
+  @include m.section-padding;
+  position: relative;
+  z-index: 1;
+  // Remove any extra top padding — section flows tightly from previous section
+  padding-top: var(--space-24);
+}
+
+.chapterLabel {
+  @include m.mono-label;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-12);
+
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--smoke);
+  }
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-chapter);
+  font-weight: 400;
+  line-height: var(--leading-tight);
+  color: var(--bone);
+  margin-bottom: var(--space-16);
+
+  em {
+    font-style: italic;
+    color: var(--amber);
+  }
+}
+
+// ── Project list ─────────────────────────────────────────────────────────────
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  border-top: 1px solid var(--smoke);
+  padding-block: var(--space-12);
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: var(--space-12);
+  // Smooth hover — 300ms as required
+  transition: background 300ms ease-in-out;
+
+  &:last-child {
+    border-bottom: 1px solid var(--smoke);
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  @include m.lg {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+// ── Index number — amber stroke so it's clearly legible ──────────────────────
+.cardIndex {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 400;
+  // Changed from var(--smoke) stroke (invisible on dark bg) to amber
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 180, 59, 0.55); // amber at 55% — visible, not garish
+  line-height: 1;
+  padding-top: var(--space-1);
+  transition: -webkit-text-stroke-color 300ms ease-in-out;
+
+  .card:hover & {
+    -webkit-text-stroke-color: rgba(255, 180, 59, 0.90);
+  }
+
+  @include m.lg {
+    font-size: 2rem;
+  }
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: 400;
+  line-height: var(--leading-tight);
+  color: var(--bone);
+}
+
+.cardCategory {
+  @include m.mono-label;
+  flex-shrink: 0;
+}
+
+// ── Three-column layout ──────────────────────────────────────────────────────
+.cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-8);
+  border-top: 1px solid var(--smoke);
+  padding-top: var(--space-6);
+
+  @include m.md {
+    grid-template-columns: 1fr;
+  }
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.colLabel {
+  @include m.mono-label;
+  color: var(--amber);
+}
+
+// ── Body paragraphs — improved contrast and size ─────────────────────────────
+.colText {
+  font-size: 0.9375rem;             // 15px — up from 0.875rem (14px)
+  line-height: 1.65;
+  color: var(--bone);               // was var(--ash) = #8B8F98; now full bone for readability
+  opacity: 0.80;                    // slight softening to stay visually distinct from headings
+  max-width: 36ch;
+}
+
+// ── Metric callout ───────────────────────────────────────────────────────────
+.metric {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-6);
+  background: var(--amber-dim);
+  border: 1px solid var(--amber-glow);
+  border-radius: 2px;
+  align-self: flex-start;
+}
+
+.metricValue {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--amber);
+}
+
+.metricLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  letter-spacing: var(--tracking-mono);
+  color: var(--ash);
+}
+
+// ── Stack tags ───────────────────────────────────────────────────────────────
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.stackTag {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  letter-spacing: 0.06em;
+  color: var(--ash);
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--smoke);
+  border-radius: 2px;
+  transition: border-color 300ms ease-in-out, color 300ms ease-in-out;
+
+  &:hover {
+    border-color: var(--amber);
+    color: var(--bone);
+  }
+}
+
+// ── Links ────────────────────────────────────────────────────────────────────
+.links {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.linkBtn {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+  color: var(--bone);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border: 1px solid var(--smoke);
+  border-radius: 2px;
+  transition: border-color 300ms ease-in-out, color 300ms ease-in-out, background 300ms ease-in-out;
+  @include m.focus-ring;
+
+  &:hover {
+    border-color: var(--amber);
+    color: var(--amber);
+  }
+
+  &--primary {
+    background: var(--amber);
+    color: var(--ink);
+    border-color: var(--amber);
+
+    &:hover {
+      background: transparent;
+      color: var(--amber);
+    }
+  }
+}

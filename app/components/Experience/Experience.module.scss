@@ -1,0 +1,326 @@
+@use "../../styles/tokens";
+@use "../../styles/mixins" as m;
+
+// =============================================================================
+// Experience — Chapter 05 "The Room"
+// Editorial timeline left · Education sidebar right
+// =============================================================================
+
+.experience {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+// ── Main content ──────────────────────────────────────────────────────────────
+.inner {
+  @include m.container;
+  @include m.section-padding;
+}
+
+.chapterLabel {
+  @include m.mono-label;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-12);
+
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--smoke);
+  }
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-chapter);
+  font-weight: 400;
+  line-height: var(--leading-tight);
+  color: var(--bone);
+  margin-bottom: var(--space-16);
+
+  em {
+    font-style: italic;
+    color: var(--amber);
+  }
+}
+
+// ── Two-column grid ───────────────────────────────────────────────────────────
+.grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: var(--space-24);
+  align-items: start;
+
+  @include m.lg {
+    grid-template-columns: 1fr;
+    gap: var(--space-16);
+  }
+}
+
+// =============================================================================
+// EXPERIENCE TIMELINE (left column)
+// =============================================================================
+
+.timeline {
+  position: relative;
+  // Left padding makes room for the vertical line and dot
+  padding-left: var(--space-12);
+}
+
+// Vertical amber hairline — GSAP scrubs scaleY from 0 to 1
+.timelineLine {
+  position: absolute;
+  left: 3px;
+  top: 12px;
+  bottom: 24px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    var(--amber) 0%,
+    rgba(255, 180, 59, 0.20) 100%
+  );
+  transform-origin: top;
+  transform: scaleY(0);
+}
+
+// ── Single experience entry ───────────────────────────────────────────────────
+.item {
+  position: relative;
+  padding-bottom: var(--space-16);
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  // Hover: very subtle background wash
+  &:hover {
+    .summary { color: var(--bone); opacity: 1; }
+    .dot      { background: var(--amber); box-shadow: 0 0 0 4px rgba(255, 180, 59, 0.15); }
+  }
+}
+
+// Amber dot on the timeline line
+.dot {
+  position: absolute;
+  left: calc(-1 * var(--space-12) - 3px);
+  top: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 1.5px solid var(--amber);
+  transition:
+    background 300ms ease-in-out,
+    box-shadow 300ms ease-in-out;
+}
+
+// Outlined index number — subtle, decorative
+.index {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  letter-spacing: var(--tracking-mono);
+  color: rgba(255, 180, 59, 0.35);
+  margin-bottom: var(--space-3);
+  text-transform: uppercase;
+}
+
+// ── Company + period row ──────────────────────────────────────────────────────
+.topRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-2);
+}
+
+.company {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--bone);
+  letter-spacing: -0.01em;
+}
+
+.period {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+  color: var(--ash);
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+// ── Role + type row ───────────────────────────────────────────────────────────
+.roleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.role {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--amber);
+  letter-spacing: 0.01em;
+}
+
+.type {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+  color: var(--ash);
+  opacity: 0.6;
+
+  // Dot separator before "Internship"
+  &::before {
+    content: "·";
+    margin-right: var(--space-3);
+    opacity: 0.6;
+  }
+}
+
+// ── Domain tag ────────────────────────────────────────────────────────────────
+.domain {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+  color: var(--ash);
+  background: var(--smoke);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  padding: var(--space-1) var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+// ── Summary paragraph ─────────────────────────────────────────────────────────
+.summary {
+  font-family: var(--font-ui);
+  font-size: 0.9375rem;        // 15px — readable, not resume-sized
+  line-height: 1.65;
+  color: var(--bone);
+  opacity: 0.75;               // slightly softened; hover brings to full
+  max-width: 52ch;
+  margin-bottom: var(--space-5);
+  transition: opacity 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+// ── Highlight callout ─────────────────────────────────────────────────────────
+// A single-line key fact, styled as an amber accent strip
+.highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+  color: var(--amber);
+  opacity: 0.80;
+  margin-bottom: var(--space-5);
+}
+
+.highlightDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--amber);
+  flex-shrink: 0;
+}
+
+// ── Tech tags ─────────────────────────────────────────────────────────────────
+.techRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.techTag {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  letter-spacing: 0.05em;
+  color: var(--ash);
+  padding: 2px var(--space-3);
+  border: 1px solid var(--smoke);
+  border-radius: 2px;
+  transition: border-color 300ms ease-in-out, color 300ms ease-in-out;
+
+  .item:hover & {
+    border-color: rgba(255, 180, 59, 0.20);
+    color: var(--bone);
+  }
+}
+
+// =============================================================================
+// EDUCATION SIDEBAR (right column) — unchanged
+// =============================================================================
+
+.sidebar {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  @include m.lg {
+    position: static;
+  }
+}
+
+.sidebarLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: var(--space-8);
+}
+
+.eduItem {
+  border-top: 1px solid var(--smoke);
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-6);
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.eduDegree {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--bone);
+  line-height: 1.4;
+  margin-bottom: var(--space-2);
+}
+
+.eduMeta {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+  color: var(--ash);
+  line-height: 1.5;
+  margin-bottom: var(--space-3);
+}
+
+.eduScore {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--amber);
+  letter-spacing: -0.02em;
+}

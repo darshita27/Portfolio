@@ -1,0 +1,309 @@
+@use "../../styles/tokens";
+@use "../../styles/mixins" as m;
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+// ── Full-bleed 2:47 AM desk background photo ──────────────────────────────────
+.bgPhoto {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.bgImg {
+  object-fit: cover;
+  object-position: center 35%;
+  filter: blur(2px) saturate(0.7) brightness(0.45);
+  transform: scale(1.05); // hide blur edges
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  // Lighter in the centre so the photo atmosphere shows through
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(7,8,10,0.85) 0%,     // nav area — opaque
+      rgba(7,8,10,0.30) 35%,    // mid hero — let photo breathe
+      rgba(7,8,10,0.45) 70%,
+      rgba(7,8,10,0.92) 100%
+    ),
+    // Warm lamp glow on the right half, behind the portrait
+    radial-gradient(ellipse at 75% 50%, rgba(255,180,59,0.10) 0%, transparent 55%);
+}
+
+// ── Ambient colour blobs ─────────────────────────────────────────────────────
+.bgFallback {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,180,59,0.09) 0%, transparent 70%);
+    top: -80px;
+    right: -60px;
+    filter: blur(70px);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(61,107,255,0.06) 0%, transparent 70%);
+    bottom: 60px;
+    left: -40px;
+    filter: blur(90px);
+  }
+}
+
+// ── Layout grid ──────────────────────────────────────────────────────────────
+.inner {
+  @include m.container;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-16);
+  align-items: center;         // vertically centre both columns
+  padding-block: var(--space-16);
+
+  @include m.lg {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+    padding-block: var(--space-12);
+  }
+}
+
+// ── Text column ──────────────────────────────────────────────────────────────
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.chapterLabel {
+  @include m.mono-label;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  font-weight: 400;
+  line-height: var(--leading-hero);
+  letter-spacing: var(--tracking-hero);
+  color: var(--bone);
+
+  .accent {
+    font-style: italic;
+    color: var(--amber);
+  }
+}
+
+.roles {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+  color: var(--ash);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+
+    &::before {
+      content: "·";
+      color: var(--amber);
+    }
+    &:first-child::before { display: none; }
+  }
+}
+
+.tagline {
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  color: var(--ash);
+  max-width: 46ch;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+// ── Quick-facts strip ────────────────────────────────────────────────────────
+.quickFacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin-top: var(--space-4);
+}
+
+.fact {
+  flex: 1 1 auto;
+  min-width: 110px;
+  padding: var(--space-4) var(--space-4) var(--space-4) 0;
+  border-right: 1px solid rgba(255,255,255,0.08);
+
+  &:last-child { border-right: none; }
+
+  dt {
+    @include m.mono-label;
+    margin-bottom: var(--space-1);
+  }
+
+  dd {
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--bone);
+  }
+}
+
+// ── Portrait column ───────────────────────────────────────────────────────────
+.portrait {
+  display: flex;
+  justify-content: center;
+  align-items: center;         // vertically centred in the grid cell
+
+  @include m.lg {
+    order: -1;
+    justify-content: flex-start;
+  }
+}
+
+.portraitCard {
+  position: relative;
+  width: min(380px, 100%);     // larger card, responsive
+  flex-shrink: 0;
+  margin-bottom: 1.5rem;       // space for the badge below
+
+  @include m.lg {
+    width: min(260px, 100%);
+  }
+
+  @include m.sm {
+    width: min(200px, 100%);
+  }
+}
+
+// ── Portrait frame ────────────────────────────────────────────────────────────
+// The photo has a plain white background. Strategy:
+//   - Graphite card background matches the dark page
+//   - CSS vignette (inset box-shadow) darkens the white edges into the card
+//   - NO mix-blend-mode (that caused the grey/washed-out look)
+//   - Amber rim-light via outer box-shadow gives warmth
+.portraitFrame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--graphite);
+  box-shadow:
+    0 0 0 1px rgba(255,180,59,0.15),          // hairline amber border
+    -6px -6px 40px rgba(255,180,59,0.18),      // amber rim top-left
+     6px  6px 40px rgba(61,107,255,0.08),       // cool signal glow bottom-right
+    0 32px 80px rgba(0,0,0,0.65);              // deep ground shadow
+
+  // Amber rim-light gradient overlay (top-left only, light touch)
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(
+      145deg,
+      rgba(255,180,59,0.12) 0%,
+      transparent 40%
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  // Vignette: darkens the white photo edges so they dissolve into the card
+  // Uses inset box-shadow — no blend mode needed
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-lg);
+    box-shadow: inset 0 0 70px rgba(7,8,10,0.50);
+    z-index: 2;
+    pointer-events: none;
+  }
+}
+
+// ── Portrait image ────────────────────────────────────────────────────────────
+.portraitImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-lg);
+  // Very slight contrast/saturation boost. NO mix-blend-mode.
+  filter: contrast(1.04) saturate(0.95) brightness(1.0);
+  // No mix-blend-mode — it caused the grey/dark appearance
+}
+
+// ── Status badge ─────────────────────────────────────────────────────────────
+.badge {
+  position: absolute;
+  bottom: -1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--graphite);
+  border: 1px solid rgba(255,180,59,0.30);
+  border-radius: 2px;
+  padding: var(--space-2) var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  white-space: nowrap;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--amber);
+    animation: pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  span {
+    font-family: var(--font-mono);
+    font-size: var(--text-mono);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--ash);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.75); }
+}

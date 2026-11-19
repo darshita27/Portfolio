@@ -1,0 +1,40 @@
+# Darshita Singh
+
+> Full-Stack Developer & Software Engineer based in Jaipur, Rajasthan, India.
+> Open to full-time opportunities in software engineering, full-stack development, and AI-powered application development.
+> B.Tech in Information Technology, JECRC Foundation, 2026 (CGPA 8.72/10).
+
+## About
+
+Darshita Singh is a Full-Stack Developer, Software Engineer, and UI Designer.
+She builds end-to-end web applications using React, Node.js, Express.js, Django REST Framework, MongoDB, and PostgreSQL.
+She has worked with AI-powered CRM workflows, generative AI integrations via the Anthropic Claude API, and intelligent automation systems.
+Her technical positioning: UI/UX-focused Full-Stack Developer combining frontend engineering with product-oriented thinking.
+
+## Projects
+
+- **Vrinda Valley Resort** — Full-stack luxury resort booking platform (React 19, TypeScript, Node.js, Express 5, MongoDB Atlas, Cloudinary). Content payload optimised from ~5 MB to 11 KB. Live: https://www.vrindavalleyresort.com/
+- **DevJobsBoard** — Full-stack job aggregation platform with AI-assisted ATS resume scoring. All resume parsing is client-side. Live: https://devjobsboard-web.onrender.com/
+- **Manova Mental Wellness** — Responsive wellness site for a CBT practitioner with bilingual English/Hindi chatbot, animated booking flow, and browser-based wellness tools.
+
+## Experience
+
+- Zyoris Technology — Full-Stack Developer Intern (Aug 2026 – Nov 2026). AI-powered CRM with 12 CRM agents, Customer 360, Timeline UI.
+- Pracverse Pvt. Ltd. — AI & Next Gen Technology Associate Intern (Aug 2026 – Nov 2026). STEM and drone technology education.
+- REGEX Software Pvt. Ltd. — MERN Stack Developer Intern (Jul 2024 – Sep 2024). Responsive interfaces, REST API integration, frontend performance optimisation.
+
+## Skills
+
+Languages: JavaScript, TypeScript, C++, C, SQL
+Frontend: React.js, HTML5, CSS3, Tailwind CSS, Responsive Design, Component Architecture
+Backend: Node.js, Express.js, Django REST Framework, RESTful API Design
+Databases: MongoDB, PostgreSQL, Database Schema Design
+AI: AI Agent Workflows, Anthropic Claude API, Generative AI, Intelligent Automation
+Tools: Git, GitHub, Vercel, Netlify, Render, Cloudinary
+
+## Contact
+
+- Email: darshitasingh.it26@gmail.com
+- GitHub: https://github.com/darshita27
+- LinkedIn: https://linkedin.com/in/darshita-singh
+- Portfolio: https://darshita-singh-portfolio1.vercel.app
